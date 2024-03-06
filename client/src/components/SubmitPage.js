@@ -16,7 +16,7 @@ import { MenuItem } from '@mui/material'
 function SubmitPage() {
     const [storeName, setStoreName] = React.useState("")
     const [genre, setGenre] = React.useState("")
-    const [value, setValue] = React.useState(0)
+    const [shopValue, setShopValue] = React.useState(0)
     const [date, setDate] = React.useState(dayjs())
 
 
@@ -50,15 +50,15 @@ function SubmitPage() {
                 <br></br>
                 {/* 評価 */}
                 <Rating
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
+                    value={shopValue}
+                    onChange={(e) => setShopValue(e.target.value)}
                 />
                 {/* 写真は後ほど実装 */}
                 {/* 日付 */}
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DateCalendar 
                         value={date} 
-                        onChange={(e) => setDate(e.target.value)}/>
+                        onChange={(newDate) => setDate(newDate)}/>
                 </LocalizationProvider>
                 {/* 送信ボタン */}
                 <Button variant="contained">submit</Button>
